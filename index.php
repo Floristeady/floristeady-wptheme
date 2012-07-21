@@ -15,6 +15,42 @@
 
 get_header(); ?>
 
+<div id="top-content">
+	<div class="center">
+	
+		<?php // Index text area widgets, just because.-->
+		if ( is_active_sidebar( 'index-widget-area' ) ) : ?>
+		<div class="text">
+			<?php dynamic_sidebar( 'index-widget-area' ); ?>
+
+		</div>
+		<?php endif; ?>
+		
+		<div class="tags">
+		<?php query_posts('category_name=portfolio');
+			if (have_posts()) : while (have_posts()) : the_post();
+				$posttags = get_the_tags();
+			if ($posttags) {
+				foreach($posttags as $tag) {
+					$all_tags_arr[] = $tag -> name;
+				}
+			}
+			endwhile; endif;
+				$tags_arr = array_unique($all_tags_arr);
+			?>
+			
+			<a href="#all" rel="todos" class="all" title="Ver todos los proyectos">All Work</a>
+			<?php
+				foreach($tags_arr as $tag){
+					echo '<a rel="'. $tag. '" href="#'. $tag. '">'. $tag. '</a>';
+			}
+		?>
+		</div><!--tags-->
+	 </div>	
+</div>
+
+<section id="container">
+
 	<div id="portfolio">
     <?php query_posts('category_name=portfolio') ?>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -48,6 +84,6 @@ get_header(); ?>
 	<?php wp_reset_query(); ?>
 	</div><!--#portfolio-->
 
-
+</section>
 
 <?php get_footer(); ?>

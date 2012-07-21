@@ -46,7 +46,7 @@
 	<body <?php body_class(); ?>>
 	
 		<div id="wrapper" class="hfeed">
-			<span class="back_light"></span>
+			<span class="large_light"></span>
 			
 			<header role="banner">
 				<section id="container">
@@ -70,4 +70,4 @@
 				
 			</header>
 		
-			<section id="container" role="main">
+			<div id="main-content" role="main">

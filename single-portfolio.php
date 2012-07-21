@@ -1,9 +1,8 @@
 <?php
 /**
- * The Template for single blog
+ * The Template for single portfolio
  */
-
-get_header(); ?>
+ ?>
 
 <div id="portfolio_single">
 
@@ -15,19 +14,29 @@ get_header(); ?>
                  <div class="top">
                  		
              		<h1 class="entry-title"><?php the_title(); ?>
-                    <span class="tag"><?php $posttags = get_the_tags(); if ($posttags) { foreach($posttags as $tag) { echo $tag->name . ' '; } } ?>
+                    <span class="tag">| <?php $posttags = get_the_tags(); if ($posttags) { foreach($posttags as $tag) { echo $tag->name . ' '; } } ?>
                     </span>
                     </h1>
 
                     <nav id="nav-above" class="navigation">
 					    <div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&lt;', 'Previous post link', 'twentyten' ) . '</span> Anterior (previous)', FALSE, $excluded_categories = '13' ); ?></div>
-                        <span class="separa">/</span>
                         <div class="nav-next"><?php next_post_link( '%link', 'Siguiente (next) <span class="meta-nav">' . _x( '&gt;', 'Next post link', 'twentyten' ) . '</span>', FALSE, $excluded_categories = '13' ); ?></div>
                     </nav><!-- #nav-above -->
 
                  </div>
 
                 <div class="three_fourths">
+                	
+                	<?php  if((get_post_meta($post->ID, 'video_url', true))) { ?>
+                	<div class="video">
+						<?php
+						$urlVideo = get_post_meta($post->ID, 'video_url', true);						
+						global $smart_youtube_pro;
+						$urlVideo = str_replace("http://", "httpvh://", $urlVideo);
+						print $smart_youtube_pro->check( $urlVideo, 0);
+						?>
+					</div> <!-- Fin del div video -->
+					<?php } ?>
 
                     <div class="gallery">
                     
@@ -54,18 +63,16 @@ get_header(); ?>
 
                 </div>
 
-                <div class="one_fourth">
+                <div class="one_fourth_nomar">
 						
                     <div class="entry-content">
+                   
                     
                     <?php the_content(); ?>
-                    
-                    <?php  if((get_post_meta($post->ID, 'year', true))) { ?>
-                    	<p><?php echo get_post_meta($post->ID, 'year', true); ?></p>
-                    <?php } ?>
+                   
 
                     <?php  if((get_post_meta($post->ID, 'web_url', true))) { ?>
-						<span class="web">
+						<span class="web_url">
 							 <a target="_blank" title="" href="<?php echo get_post_meta($post->ID, 'web_url', true); ?>"><?php _e( '[:en]Visit the web [:es]Visitar la web' ); ?></a>
 						</span>
 					<?php } ?>
@@ -84,4 +91,3 @@ get_header(); ?>
 <?php endwhile; // end of the loop. ?>
 </div> <!-- #portfolio -->
 
-<?php get_footer(); ?>

@@ -366,30 +366,25 @@ function floristeady_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Header Submenu Widget'),
 		'id' => 'submenu-widget',
-		'description' => __( 'Area submenu header', 'twentyten' ),
+		'description' => __( 'Area submenu header', 'floristeady' ),
 		'before_widget' => '<ul>',
         'after_widget' => '</ul>',
 	) );
 
-    // Title Proyect Section
-    register_sidebar(array('name'=>'Title Proyect',
-        'description' => __( 'Title Proyect', 'twentyten' ),
-        'before_widget' => '',
+    // Index text, located in the index.php.
+    register_sidebar( array(
+		'name' => __( 'Index Text Widget'),
+		'id' => 'index-widget-area',
+		'description' => __( 'Area index text widget', 'floristeady' ),
+		'before_widget' => '',
         'after_widget' => '',
-        ));
-
-    // Title Blog Section
-    register_sidebar(array('name'=>'Title Blog',
-        'description' => __( 'Title Blog', 'twentyten' ),
-        'before_widget' => '',
-        'after_widget' => '',
-        ));
+	) );
 
 	// Area 2, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'First Footer Widget Area', 'twentyten' ),
+		'name' => __( 'First Footer Widget Area', 'floristeady' ),
 		'id' => 'first-footer-widget-area',
-		'description' => __( 'The first footer widget area', 'twentyten' ),
+		'description' => __( 'The first footer widget area', 'floristeady' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -398,9 +393,9 @@ function floristeady_widgets_init() {
 	
 	// Area 2, located in the footer. Empty by default.
 	register_sidebar( array(
-		'name' => __( 'Second Footer Widget Area', 'twentyten' ),
+		'name' => __( 'Second Footer Widget Area', 'floristeady' ),
 		'id' => 'second-footer-widget-area',
-		'description' => __( 'The second footer widget area', 'twentyten' ),
+		'description' => __( 'The second footer widget area', 'floristeady' ),
 		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</li>',
 		'before_title' => '<h3 class="widget-title">',
@@ -555,14 +550,15 @@ function admin_init(){
 function credits_meta() {
   global $post;
   $custom = get_post_custom($post->ID);
-  $year = $custom["year"][0];
   $web_url = $custom["web_url"][0];
+  $video_url = $custom["video_url"][0];
   
   ?>
-	<p><label style="width: 200px; float:left">Año del Proyecto:</label>
-	<input size="30"  name="year" value="<?php echo $year; ?>" /></p>
+
 	<p><label style="width: 200px; float:left">Dirección URL del proyecto:</label>
 	<input size="30"  name="web_url" value="<?php echo $web_url; ?>" /></p>
+	<p><label style="width: 200px; float:left">Dirección URL video:</label>
+	<input size="30"  name="video_url" value="<?php echo $video_url; ?>" /></p>
 	<?php
 	}
 
@@ -571,8 +567,8 @@ add_action('save_post', 'save_details');
 function save_details(){
   global $post;
 
-  update_post_meta($post->ID, "year", $_POST["year"]);
   update_post_meta($post->ID, "web_url", $_POST["web_url"]);
+  update_post_meta($post->ID, "video_url", $_POST["video_url"]);
 
 }
 

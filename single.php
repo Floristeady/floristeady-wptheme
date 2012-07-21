@@ -8,6 +8,9 @@
  */
 
 get_header(); ?>
+
+<section id="container">
+
 <?
 $post = $wp_query->post;
 
@@ -18,6 +21,8 @@ if ( in_category ('Portfolio')  ) {
 } else {
 	include(TEMPLATEPATH . '/single-portfolio.php');
 }
-
 ?>
+
+</section>
+
 <?php get_footer(); ?>

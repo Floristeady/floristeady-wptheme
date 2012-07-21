@@ -13,6 +13,9 @@
  */
 
 get_header(); ?>
+
+<section id="container">
+
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if ( is_front_page() ) { ?>
@@ -28,5 +31,7 @@ get_header(); ?>
 				</article><!-- #post-## -->
 				<?php comments_template( '', true ); ?>
 <?php endwhile; ?>
-<?php get_sidebar(); ?>
+
+</section>
+
 <?php get_footer(); ?>

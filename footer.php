@@ -10,7 +10,7 @@
  * @since floristeady 1.0
  */
 ?>
-		</section><!-- #main -->
+		</div><!-- #main -->
 		<footer role="contentinfo">
 			<div id="container">
 	<?php
