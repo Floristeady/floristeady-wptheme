@@ -26,7 +26,7 @@ get_header(); ?>
 		</div>
 		<?php endif; ?>
 		
-		<div class="tags">
+		<div id="portfolio-filter" class="tags">
 		<?php query_posts('category_name=portfolio');
 			if (have_posts()) : while (have_posts()) : the_post();
 				$posttags = get_the_tags();
@@ -39,10 +39,10 @@ get_header(); ?>
 				$tags_arr = array_unique($all_tags_arr);
 			?>
 			
-			<a href="#all" rel="todos" class="all" title="Ver todos los proyectos">All Work</a>
+			<a href="#all" rel="todos" class="all tag" title="Ver todos los proyectos">All Work</a>
 			<?php
 				foreach($tags_arr as $tag){
-					echo '<a rel="'. $tag. '" href="#'. $tag. '">'. $tag. '</a>';
+					echo '<a class="tag" rel="'. $tag. '" href="#'. $tag. '">'. $tag. '</a>';
 			}
 		?>
 		</div><!--tags-->
@@ -67,7 +67,7 @@ get_header(); ?>
 					$thumbnailsrc = $domsxe->attributes()->src;
 				?>
 							
-		       <img class="img" alt="<?php the_title() ?>" src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=220&h=220" border=0 />
+		       <img class="img greyScale" alt="<?php the_title() ?>" src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=220&h=220" border=0 />
 	       </a>
 	       
 	       <span class="text">

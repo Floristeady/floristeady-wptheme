@@ -13,6 +13,10 @@
  */
 
 get_header(); ?>
+
+<section id="container">
+	<div id="content">
+
 <?php
 	/* Queue the first post, that way we know
 	 * what date we're dealing with (if that is the case).
@@ -46,5 +50,8 @@ get_header(); ?>
 	 */
 	 get_template_part( 'loop', 'archive' );
 ?>
-<?php get_sidebar(); ?>
+
+	</div>
+</section>
+
 <?php get_footer(); ?>

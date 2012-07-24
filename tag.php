@@ -9,6 +9,10 @@
 
 get_header(); ?>
 
+<section id="container">
+	<div id="content">
+
+
 				<h1><?php
 					printf( __( 'Tag Archives: %s', 'floristeady' ), '' . single_tag_title( '', false ) . '' );
 				?></h1>
@@ -21,5 +25,7 @@ get_header(); ?>
  get_template_part( 'loop', 'tag' );
 ?>
 
-<?php get_sidebar(); ?>
+	</div>
+</section>
+
 <?php get_footer(); ?>

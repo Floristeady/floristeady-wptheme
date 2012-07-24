@@ -49,7 +49,7 @@
   				
                 </div><!-- .col_IZ -->
 
-                  <div class="col_DE one_fourth_nomar">
+                  <div class="col_DE one_fourth_nomar line-separate">
 
                       <span class="date"><?php the_time('d/m/Y'); ?></span>
                       <span class="tags">Tags: <?php $posttags = get_the_tags();

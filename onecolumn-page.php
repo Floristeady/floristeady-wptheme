@@ -14,6 +14,9 @@
 
 get_header(); ?>
 
+<section id="container">
+	<div id="content">
+
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 				<h1><?php the_title(); ?></h1>
@@ -24,5 +27,9 @@ get_header(); ?>
 				<?php comments_template( '', true ); ?>
 
 <?php endwhile; ?>
+
+	</div>
+</section>
+
 
 <?php get_footer(); ?>

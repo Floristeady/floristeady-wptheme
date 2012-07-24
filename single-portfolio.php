@@ -63,7 +63,7 @@
 
                 </div>
 
-                <div class="one_fourth_nomar">
+                <div class="one_fourth_nomar line-separate">
 						
                     <div class="entry-content">
                    

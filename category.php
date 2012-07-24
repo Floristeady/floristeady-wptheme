@@ -10,8 +10,9 @@
 get_header(); ?>
 
 <section id="container">
+		<div id="content">
 
-				<h1><?php
+				<h1 class="entry-title"><?php
 					printf( __( '%s', 'floristeady' ), '' . single_cat_title( '', false ) . '' );
 				?></h1>
 				<?php
@@ -45,7 +46,7 @@ get_header(); ?>
 	                    </div>
 	                </div>	
 
-                    <div class="col_DE one_fourth_nomar">
+                    <div class="col_DE one_fourth_nomar line-separate">
 
                         <div class="date"><?php the_time('d/m/Y') ?></div>
                         <span class="tags">Tags: <?php $posttags = get_the_tags();
@@ -61,6 +62,8 @@ get_header(); ?>
 		
 <?php endwhile; endif; ?>
 
+	</div>
+	
 </section>
 
 <?php get_footer(); ?>

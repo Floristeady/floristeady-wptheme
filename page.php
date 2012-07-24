@@ -15,13 +15,16 @@
 get_header(); ?>
 
 <section id="container">
+	<div id="content">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if ( is_front_page() ) { ?>
 					<h2 class="entry-title"><?php the_title(); ?></h2>
 				<?php } else { ?>	
-					<h1 class="entry-title"><?php the_title(); ?></h1>
+					<h1 class="entry-title"><?php the_title(); ?>
+					<span><?php $pbasExtracto = strip_tags(get_the_excerpt()); ?>
+                        <?php print substr($pbasExtracto, 0, strpos($pbasExtracto, "Continue reading")); ?></h1>
 				<?php } ?>
 					<div class="entry-content">
 						<?php the_content(); ?>
@@ -31,7 +34,7 @@ get_header(); ?>
 				</article><!-- #post-## -->
 				<?php comments_template( '', true ); ?>
 <?php endwhile; ?>
-
+	</div>
 </section>
 
 <?php get_footer(); ?>

@@ -10,6 +10,7 @@
 get_header(); ?>
 
 <section id="container">
+	<div id="content">
 
 <?
 $post = $wp_query->post;
@@ -22,7 +23,7 @@ if ( in_category ('Portfolio')  ) {
 	include(TEMPLATEPATH . '/single-portfolio.php');
 }
 ?>
-
+	</div>
 </section>
 
 <?php get_footer(); ?>

@@ -71,6 +71,7 @@
 			add_settings_field('plugins_js', 'jQuery Plug-ins JS?:', 'plugins_js_setting', 'boilerplate-admin', 'main_section');
 			add_settings_field('site_js', 'Site-specific JS?:', 'site_js_setting', 'boilerplate-admin', 'main_section');
 			add_settings_field('cache_buster', 'Cache-Buster?:', 'cache_buster_setting', 'boilerplate-admin', 'main_section');
+			add_settings_field('extras_js', 'Extras js?:', 'extras_js_setting', 'boilerplate-admin', 'main_section');
 		}
 		add_action('admin_init', 'register_and_build_fields');
 	endif; // register_and_build_fields
@@ -301,6 +302,21 @@
 			echo '<code>?ver='.$version.'</code>';
 		}
 	endif; // cache_buster_setting
+	
+	//	callback fn for site_js
+	if ( ! function_exists( 'extras_js_setting' ) ):
+		function extras_js_setting() {
+			$options = get_option('plugin_options');
+			$checked = (isset($options['extras_js']) && $options['extras_js']) ? 'checked="checked" ' : '';
+			echo '<input class="check-field" type="checkbox" name="plugin_options[extras_js]" value="true" ' .$checked. '/>';
+			echo '<p>If you would like to add extras JavaScript files:</p>';
+			echo '<code>' .BP_THEME_URL. '/js/greyScale.js</code>';
+			echo '<p>Select this option for add more archive.</p>';
+			echo '<p>Selecting this option will add the following code to your pages just before the <code>&lt;/body&gt;</code>:</p>';
+			echo '<code>&lt;script type=\'text/javascript\' src=\'' .BP_THEME_URL. '/js/greyScale.js?ver=x\'&gt;&lt;/script&gt;</code>';
+		}
+	endif; // site_js_setting
+
 
 
 /*	4)	Create functions to add above elements to pages */
@@ -413,7 +429,15 @@
 	if ( ! function_exists( 'add_site_script' ) ):
 		function add_site_script() {
 			$cache = cache_buster();
-			echo '<script src="' .BP_THEME_URL. '/js/script.js'.$cache.'"></script>'.PHP_EOL;
+			echo '<script src="' .BP_THEME_URL. '/js/script-starter.js'.$cache.'"></script>'.PHP_EOL;
+		}
+	endif; // add_site_script
+	
+	//	$options['extras_js']
+	if ( ! function_exists( 'add_extras_js_script' ) ):
+		function add_extras_js_script() {
+			$cache = cache_buster();
+			echo '<script src="' .BP_THEME_URL. '/js/greyScale.js'.$cache.'"></script>'.PHP_EOL;
 		}
 	endif; // add_site_script
 
@@ -424,7 +448,7 @@
 			return (isset($options['cache_buster']) && $options['cache_buster']) ? '?ver='.$options['cache_buster_version'] : '';
 		}
 	endif; // cache_buster
-
+	
 
 /*	5)	Add Boilerplate options to page as requested */
 		if (!is_admin() ) {
@@ -484,10 +508,15 @@
 				$hook = (isset($options['jquery_head']) && $options['jquery_head']) ? 'wp_print_styles' : 'wp_footer';
 				add_action($hook, 'add_plugin_script');
 			}
+			
+			if (isset($options['extras_js']) && $options['extras_js']) {
+				add_action('wp_footer', 'add_extras_js_script');
+			}
 
 			if (isset($options['site_js']) && $options['site_js']) {
 				add_action('wp_footer', 'add_site_script');
 			}
+			
 
 		} // if (!is_admin() )
 

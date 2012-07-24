@@ -540,6 +540,9 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_theme_support( 'post-thumbnails' );
 }
 
+// added page excerpt
+add_post_type_support( 'page', 'excerpt' );
+
 // Custom Field para Proyecto y Inmobiliaria
 add_action("admin_init", "admin_init");
  
