@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-<section id="container">
+<section class="container">
 		<div id="content">
 
 				<h1 class="entry-title"><?php

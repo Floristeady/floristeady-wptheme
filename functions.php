@@ -367,8 +367,8 @@ function floristeady_widgets_init() {
 		'name' => __( 'Header Submenu Widget'),
 		'id' => 'submenu-widget',
 		'description' => __( 'Area submenu header', 'floristeady' ),
-		'before_widget' => '<ul>',
-        'after_widget' => '</ul>',
+		'before_widget' => '<div>',
+        'after_widget' => '</div>',
 	) );
 
     // Index text, located in the index.php.

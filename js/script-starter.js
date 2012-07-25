@@ -6,28 +6,33 @@
 
 $(function () {
 
-	// Fade del load project and filter tag
+// Fade del load project and filter tag
 	$(function () {
 		$('.project').hide();//hide all the images on the page
-		
-		});
+		$('.wp-pagenavi').hide();
+    });
 	
+
 			var i = 0; //initialize
 			var int=0; //Internet Explorer Fix
 		$(window).bind("load", function() { //The load event will only fire if the entire page or document is fully loaded
 			int = setInterval(doThis, 200); //200 is the fade in speed in milliseconds
-			
-	    });
+	 });
 	
 	function doThis() {
 		var imgs = $('.project').length; //count the number of images on the page
+		
 		if (i >= imgs) { // Loop the images
 			clearInterval(int); //When it reaches the last image the loop ends
 			}
 	
 			$('.project:hidden').eq(0).fadeIn(200); //fades in the hidden images one by one
 			i++;//add 1 to the count
+			
+				$('.wp-pagenavi').delay(2000).fadeIn(100);
+
 	}	
+	
 	
 	/*Effect greyscale*/
 	$(function () {

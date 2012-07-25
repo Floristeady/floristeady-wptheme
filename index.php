@@ -39,50 +39,61 @@ get_header(); ?>
 				$tags_arr = array_unique($all_tags_arr);
 			?>
 			
-			<a href="#all" rel="todos" class="all tag" title="Ver todos los proyectos">All Work</a>
+			<a href="#all" class="all tag" title="Ver todos los proyectos">All Work</a>
 			<?php
 				foreach($tags_arr as $tag){
-					echo '<a class="tag" rel="'. $tag. '" href="#'. $tag. '">'. $tag. '</a>';
+					echo '<a class="tag" href="#'. $tag. '">'. $tag. '</a>';
 			}
 		?>
 		</div><!--tags-->
 	 </div>	
 </div>
 
-<section id="container">
-
-	<div id="portfolio">
-    <?php query_posts('category_name=portfolio') ?>
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    
-	    <div class="project <?php /*tags*/ $posttags = get_the_tags();
-			if ($posttags) { foreach($posttags as $tag) { echo $tag->name . ' ';} } ?>" >
+<section class="container">
 	
-	       <a id="box_<?php the_ID(); ?>" href="<?php the_permalink() ?>" rel="bookmark" title="Ir a <?php the_title_attribute(); ?>">
-		       
-		       <?php //Obtenemos la url de la imagen destacada
-				$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
-				$thumbnailsrc = "";
-				if (!empty($domsxe))
-					$thumbnailsrc = $domsxe->attributes()->src;
-				?>
-							
-		       <img class="img greyScale" alt="<?php the_title() ?>" src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=220&h=220" border=0 />
-	       </a>
-	       
-	       <span class="text">
-		        <a class="title" href="<?php the_permalink() ?>" rel="bookmark" title="Ir a <?php the_title_attribute(); ?>"> <?php the_title() ?> </a>
-		        
-		        <!--Tag-->
-	            <?php /*tags*/ $posttags = get_the_tags(); if ($posttags) { foreach($posttags as $tag) {
-	                    echo '<a class="tag" rel="'. $tag->name. '" href="#'. $tag->name. '" title="" class="">'. $tag->name . '</a>'; } }  ?>
-	        </span><!--/work_title-->
-	        
-	    </div><!--/module-->
+	<div id="content">
+
+		<div id="portfolio">
+	    <?php 
+	    $args = array(  'paged' => $paged, 'category_name' => 'portfolio');
+	    query_posts( $args );
+	    //query_posts('category_name=portfolio') ?>
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	    
-    <?php endwhile; endif; ?>
-	<?php wp_reset_query(); ?>
-	</div><!--#portfolio-->
+		    <div class="project <?php /*tags*/ $posttags = get_the_tags();
+				if ($posttags) { foreach($posttags as $tag) { echo $tag->name . ' ';} } ?>" >
+		
+		       <a id="box_<?php the_ID(); ?>" href="<?php the_permalink() ?>" rel="bookmark" title="Ir a <?php the_title_attribute(); ?>">
+			       
+			       <?php //Obtenemos la url de la imagen destacada
+					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
+					$thumbnailsrc = "";
+					if (!empty($domsxe))
+						$thumbnailsrc = $domsxe->attributes()->src;
+					?>
+								
+			       <img class="img greyScale" alt="<?php the_title() ?>" src="<?php bloginfo('template_url') ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&amp;w=220&amp;h=220" />
+		       </a>
+		       
+		       <span class="text">
+			        <a class="title" href="<?php the_permalink() ?>" rel="bookmark" title="Ir a <?php the_title_attribute(); ?>"> <?php the_title() ?> </a>
+			        
+			        <!--Tag-->
+		            <?php /*tags*/ $posttags = get_the_tags(); if ($posttags) { foreach($posttags as $tag) {
+		                    echo '<a class="tag" href="#'. $tag->name. '" title="">'. $tag->name . '</a>'; } }  ?>
+		        </span><!--/work_title-->
+		        
+		    </div><!--/module-->
+		    
+	    <?php endwhile; endif; ?>
+		<?php wp_reset_query(); ?>
+		
+		
+		</div><!--#portfolio-->
+	
+	<?php wp_pagenavi(); ?>
+	
+	</div><!--#content-->
 
 </section>
 

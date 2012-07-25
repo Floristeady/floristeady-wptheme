@@ -9,12 +9,12 @@
 
 get_header(); ?>
 
-<section id="container">
+<section class="container">
 	<div id="content">
 
 
 				<h1><?php
-					printf( __( 'Tag Archives: %s', 'floristeady' ), '' . single_tag_title( '', false ) . '' );
+					printf( __( 'Archivo etiquetas <span>(Tag Archives)</span>: %s', 'floristeady' ), '' . single_tag_title( '', false ) . '' );
 				?></h1>
 
 <?php

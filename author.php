@@ -9,6 +9,9 @@
 
 get_header(); ?>
 
+<section class="container">
+		<div id="content">
+
 <?php
 	/* Queue the first post, that way we know who
 	 * the author is when we try to get their name,
@@ -21,7 +24,7 @@ get_header(); ?>
 		the_post();
 ?>
 
-				<h1><?php printf( __( 'Author Archives: %s', 'floristeady' ), "<a class='url fn n' href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "' title='" . esc_attr( get_the_author() ) . "' rel='me'>" . get_the_author() . "</a>" ); ?></h1>
+				<h1><?php printf( __( 'Archivo por autor <span>(Author Archives)</span>: %s', 'floristeady' ), "" . get_the_author() . "" ); ?></h1>
 
 <?php
 // If a user has filled out their description, show a bio on their entries.
@@ -47,5 +50,8 @@ if ( get_the_author_meta( 'description' ) ) : ?>
 	 get_template_part( 'loop', 'author' );
 ?>
 
-<?php get_sidebar(); ?>
+
+	</div>
+	
+</section>
 <?php get_footer(); ?>

@@ -49,7 +49,7 @@
 			<span class="large_light"></span>
 			
 			<header role="banner">
-				<section id="container">
+				<section class="container">
 					 <span class="back_light"></span>
 					 
 					 <nav id="submenu">

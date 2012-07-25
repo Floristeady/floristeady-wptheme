@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-<section id="container">
+<section class="container">
 	<div id="content">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>

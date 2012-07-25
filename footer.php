@@ -12,7 +12,7 @@
 ?>
 		</div><!-- #main -->
 		<footer role="contentinfo">
-			<div id="container">
+			<div class="container">
 	<?php
 		/* A sidebar in the footer? Yep. You can can customize
 		 * your footer with four columns of widgets.

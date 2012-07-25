@@ -43,9 +43,6 @@
   						<?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="edit-link">', '</span>' ); ?>
   					</footer><!-- .entry-utility -->
 
-  				<div id="comments">
-  					<?php comments_template( '', true ); ?>
-  				</div>
   				
                 </div><!-- .col_IZ -->
 
@@ -63,6 +60,10 @@
                                               
                       <span class="comments"><?php comments_popup_link('Comment: 0', 'Comment: 1 ', 'Comments %'); ?></span>
                   </div><!-- .col_DE -->
+                  
+                  <div id="comments" class="clearfix">
+  					<?php comments_template( '', true ); ?>
+  				</div>
 
 
                 </div><!-- #post_content -->
