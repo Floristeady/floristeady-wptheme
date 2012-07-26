@@ -72,6 +72,7 @@
 			add_settings_field('site_js', 'Site-specific JS?:', 'site_js_setting', 'boilerplate-admin', 'main_section');
 			add_settings_field('cache_buster', 'Cache-Buster?:', 'cache_buster_setting', 'boilerplate-admin', 'main_section');
 			add_settings_field('extras_js', 'Extras js?:', 'extras_js_setting', 'boilerplate-admin', 'main_section');
+			add_settings_field('color_js', 'Color jquery?:', 'color_js_setting', 'boilerplate-admin', 'main_section');
 		}
 		add_action('admin_init', 'register_and_build_fields');
 	endif; // register_and_build_fields
@@ -316,6 +317,20 @@
 			echo '<code>&lt;script type=\'text/javascript\' src=\'' .BP_THEME_URL. '/js/greyScale.js?ver=x\'&gt;&lt;/script&gt;</code>';
 		}
 	endif; // site_js_setting
+	
+	//	callback fn for site_js
+	if ( ! function_exists( 'color_js_setting' ) ):
+		function color_js_setting() {
+			$options = get_option('plugin_options');
+			$checked = (isset($options['color_js']) && $options['color_js']) ? 'checked="checked" ' : '';
+			echo '<input class="check-field" type="checkbox" name="plugin_options[color_js]" value="true" ' .$checked. '/>';
+			echo '<p>If you would like to add extras JavaScript files:</p>';
+			echo '<code>' .BP_THEME_URL. '/js/jquery.color.js</code>';
+			echo '<p>Select this option for add more archive.</p>';
+			echo '<p>Selecting this option will add the following code to your pages just before the <code>&lt;/body&gt;</code>:</p>';
+			echo '<code>&lt;script type=\'text/javascript\' src=\'' .BP_THEME_URL. '/js/jquery.color.js?ver=x\'&gt;&lt;/script&gt;</code>';
+		}
+	endif; // site_js_setting
 
 
 
@@ -440,6 +455,14 @@
 			echo '<script src="' .BP_THEME_URL. '/js/greyScale.js'.$cache.'"></script>'.PHP_EOL;
 		}
 	endif; // add_site_script
+	
+	//	$options['extras_js']
+	if ( ! function_exists( 'add_color_js_script' ) ):
+		function add_color_js_script() {
+			$cache = cache_buster();
+			echo '<script src="' .BP_THEME_URL. '/js/jquery.color.js'.$cache.'"></script>'.PHP_EOL;
+		}
+	endif; // add_site_script
 
 	//	$options['cache_buster']
 	if ( ! function_exists( 'cache_buster' ) ):
@@ -512,11 +535,17 @@
 			if (isset($options['extras_js']) && $options['extras_js']) {
 				add_action('wp_footer', 'add_extras_js_script');
 			}
+			
+			if (isset($options['color_js']) && $options['color_js']) {
+				add_action('wp_footer', 'add_color_js_script');
+			}
+			
 
 			if (isset($options['site_js']) && $options['site_js']) {
 				add_action('wp_footer', 'add_site_script');
 			}
 			
+
 
 		} // if (!is_admin() )
 

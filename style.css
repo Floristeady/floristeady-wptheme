@@ -857,7 +857,7 @@ Index
 	text-align: center;
 }
 
-#top-content .tags a:hover {
+#top-content .tags .hover, #top-content .tags a.current  {
 	background-color: #969c9d;
 	color: #40e8c6;
 }
@@ -885,13 +885,17 @@ Index
 
 .project .text .title {
 	font-family: 'Magra', sans-serif;
-	color: #fff;
+	color: #ffffff;
 	width: 100%;
 	text-transform: uppercase;
 	font-size: 14px;
 	line-height: 10px;
 	float: left;
 	clear: left;
+}
+
+.project .text .title:hover {
+	text-shadow: 1px 0px 1px #222;
 }
 
 .project .text a.tag {
@@ -901,6 +905,7 @@ Index
   line-height: 10px;
   text-decoration: none;
   text-transform: uppercase;
+  padding: 0 5px;
 }
 
 .project .text a.tag:hover {

@@ -126,4 +126,31 @@ $(document).ready(function(){
 
 });
 
+/* hover tags */
+$(function(){
+
+	$("#top-content .tags a").hover(function(){
+		$(this).stop().animate({ backgroundColor: '#969C9D', color: '#40E8C6' }, 300);
+	}, function(){
+		$(this).stop().animate({ backgroundColor: 'transparent', color: '#F9F9F9' }, 100);
+
+	});
+	
+	$("#portfolio a.img").hover(function(){
+		$(this).siblings('span').stop().animate({ height: '0',  opacity: '0' }, 300);
+	}, function(){
+		$(this).siblings('span').stop().animate({ height: '32px', opacity: '1' }, 300);
+
+	});
+	
+	$("#portfolio a.title").hover(function(){
+		$(this).stop().animate({ color: '#ebebeb' }, 300);
+	}, function(){
+		$(this).stop().animate({ color: '#ffffff' }, 100);
+
+	});
+	
+	
+});
+
 	

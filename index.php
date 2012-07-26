@@ -63,7 +63,7 @@ get_header(); ?>
 		    <div class="project <?php /*tags*/ $posttags = get_the_tags();
 				if ($posttags) { foreach($posttags as $tag) { echo $tag->name . ' ';} } ?>" >
 		
-		       <a id="box_<?php the_ID(); ?>" href="<?php the_permalink() ?>" rel="bookmark" title="Ir a <?php the_title_attribute(); ?>">
+		       <a class="img" id="box_<?php the_ID(); ?>" href="<?php the_permalink() ?>" rel="bookmark" title="Ir a <?php the_title_attribute(); ?>">
 			       
 			       <?php //Obtenemos la url de la imagen destacada
 					$domsxe = simplexml_load_string(get_the_post_thumbnail($post->ID, 'large'));
