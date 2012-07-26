@@ -60,9 +60,13 @@ get_header(); ?>
 
 			</div>
 		
-<?php endwhile; endif; ?>
-
+	<?php endwhile; endif; ?>
+	
+	<?php wp_pagenavi(); ?>
+	
 	</div>
+	
+	
 	
 </section>
 

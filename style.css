@@ -1150,6 +1150,11 @@ form  span.wpcf7-not-valid-tip-no-ajax {
 	border: none;
 }
 
+.category-blog .wp-pagenavi {
+	float: left;
+	text-align: left;	
+}
+
 /* @WP Blog
 -------------------------------------------------------------- */
 
@@ -1797,6 +1802,11 @@ h3#reply-title {
 	       nav#access ul li a {font-size: 13px; margin: 0px 76px 0px 0px;}
 	       nav#access ul li:last-child a { margin: 0px 0px;}
 	       #submenu {background-position: left top; padding: 0 8px 20px 114px;}
+	       
+	       	.wp-pagenavi {
+				float: left;
+				text-align: left;	
+			}
 	 
     }
 
@@ -1809,6 +1819,11 @@ h3#reply-title {
 		    form span { float: left; text-align: left;}
 		    
 		    form span.submit { float: left; width: auto;}
+		    
+		    .wp-pagenavi {
+				float: left;
+				text-align: left;	
+			}
 
 	}
 	
