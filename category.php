@@ -14,8 +14,7 @@ get_header(); ?>
 
 				<h1 class="entry-title"><?php
 					printf( __( '%s', 'floristeady' ), '' . single_cat_title( '', false ) . '' );
-				?></h1>
-				<?php
+				?><span><?php
 					$category_description = category_description();
 					if ( ! empty( $category_description ) )
 						echo '' . $category_description . '';
@@ -26,6 +25,7 @@ get_header(); ?>
 				 get_template_part( 'loop', 'category' ); */
 				
 				?>
+				</span></h1>
 				
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				

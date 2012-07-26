@@ -317,9 +317,9 @@ header[role="banner"] {
 
 .large_light {
   background-image: url(images/CSS_sprite.png);
-  background-position: 240px -275px;
+  background-position: 240px -305px;
   background-repeat: no-repeat;
-  height: 290px;
+  height: 350px;
   float: left;
   position: absolute;
   top: 0px;
@@ -414,6 +414,48 @@ footer #text-3 h3 {
 }
 
 /* @end */
+
+/* social */
+
+ul.social {
+	margin-top: 5px;
+}
+
+ul.social li {
+	display: inline;
+	float: left;
+	margin-right: 10px;
+}
+
+ul.social li a {
+	display: block;
+	height: 23px;
+	width: 23px;
+	background-position: left center;
+	text-indent: -9999em;
+}
+
+ul.social li a.icon_tw {
+	background-image: url(images/elements/icon_tw.png);
+	width: 25px;
+}
+
+ul.social li a.icon_in {
+	background-image: url(images/elements/icon_in.png);
+}
+
+ul.social li a.icon_dc {
+	background-image: url(images/elements/icon_dc.png);
+}
+
+ul.social li a.icon_fk {
+	background-image: url(images/elements/icon_fk.png);
+}
+
+ul.social li a:hover {
+	background-position: right center;
+}
+
 
 
 /* @group Header 
@@ -690,7 +732,7 @@ h1.entry-title {
 	margin: 0px 0px 10px;
 }
 
-h1 span {
+h1 span, h1 span p {
 	color: #474a4e;
 	font-size: 16px;
 }
@@ -1115,6 +1157,11 @@ form  span.wpcf7-not-valid-tip-no-ajax {
   float: left;
   width: 100%;
   margin-bottom: 40px;
+}
+
+.category-blog h1 {
+	float: left;
+	display: none;
 }
 
 .post_modulo {
@@ -1732,6 +1779,10 @@ h3#reply-title {
 		
 		form .line-separate { padding: 0 0 55px;}
 		.category-blog .col_DE { margin-top: 20px;}
+		
+		footer img {
+			width: auto;
+		}
 	    
     }
     
