@@ -23,9 +23,15 @@ get_header(); ?>
 					<h2 class="entry-title"><?php the_title(); ?></h2>
 				<?php } else { ?>	
 					<h1 class="entry-title"><?php the_title(); ?>
-					<span><?php $pbasExtracto = strip_tags(get_the_excerpt()); ?>
-                        <?php print substr($pbasExtracto, 0, strpos($pbasExtracto, "Continue reading")); ?></h1>
+					<span>
+					<?php $myExcerpt = get_the_excerpt();
+						  $tags = array("<p>", "</p>");
+						  $myExcerpt = str_replace($tags, "", $myExcerpt);
+						  echo $myExcerpt;
+						  ?> 
+					</span></h1>
 				<?php } ?>
+				
 					<div class="entry-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '' . __( 'Pages:', 'floristeady' ), 'after' => '' ) ); ?>

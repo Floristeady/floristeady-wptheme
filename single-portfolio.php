@@ -46,6 +46,8 @@
 						    'numberposts' => null,
 						    'post_parent' => $post->ID,
 						    'post_mime_type' => 'image',
+						    'orderby'    => 'title',
+						    'order'    => 'ASC',
 						    'exclude' => get_post_thumbnail_id($post->ID)
 						);
 						$attachments = get_posts($args);

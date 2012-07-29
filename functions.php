@@ -254,8 +254,17 @@ add_filter( 'excerpt_length', 'floristeady_excerpt_length' );
  * @return string "Continue Reading" link
  */
 function floristeady_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'floristeady' ) . '</a>';
+ 
+if(is_page()){
+	
+	return ' <a href="'. get_permalink() . '">' . __( '', 'floristeady' ) . '</a>';
+		} else {
+			
+				return ' <a href="'. get_permalink() . '">' . __( '[:en]Continue reading <span class="meta-nav">&rarr;</span>[:es]Leer m&aacute;s &rarr;', 'floristeady' ) . '</a>';
+		}
 }
+
+
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and floristeady_continue_reading_link().
@@ -572,6 +581,22 @@ function save_details(){
 
   update_post_meta($post->ID, "web_url", $_POST["web_url"]);
   update_post_meta($post->ID, "video_url", $_POST["video_url"]);
+
+}
+
+
+/* for contact form 7 plugin */
+add_filter('wpcf7_form_action_url', 'wpcf7_action_url');
+
+function wpcf7_action_url(){
+
+    if(function_exists('qtrans_convertURL')){
+
+        return qtrans_convertURL($_SERVER["REQUEST_URI"]);
+
+    }
+
+    return $_SERVER["REQUEST_URI"];
 
 }
 

@@ -57,7 +57,7 @@
 					 </nav>
 					 
 					 <hgroup id="site-title">
-					 	<h1><a id="logo"  href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					 	<h1><a id="logo"  href="<?php echo bloginfo('url'); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					 </hgroup>
 				
 					<nav id="access" role="navigation" class="clearfix ten columns">

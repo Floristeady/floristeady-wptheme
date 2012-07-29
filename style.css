@@ -45,8 +45,8 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
  * Also: hot pink! (or customize the background color to match your design)
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #40E8C6; color: #fff; text-shadow: none; }
+::selection { background: #40E8C6; color: #fff; text-shadow: none; }
 
 
 /* =============================================================================
@@ -1044,6 +1044,8 @@ Index
 /* @group Plugins
 -------------------------------------------------------------- */
 
+/* contact form 7 plugin*/
+
 .wpcf7 form {
   background-color:rgba(224,228,241,0.4);
   padding: 30px 2.5%;
@@ -1121,6 +1123,12 @@ form  span.wpcf7-not-valid-tip-no-ajax {
 	color: #D71244;
 }
 
+form  div.wpcf7-mail-sent-ok {
+	float: left;
+	clear: left;
+}
+
+/* paginador plugin*/
 
 .wp-pagenavi {
 	text-align: center;
@@ -1793,6 +1801,10 @@ h3#reply-title {
 		footer img {
 			width: auto;
 		}
+		
+		.wp-pagenavi  {
+			width: 100%;
+		}
 	    
     }
     
@@ -1833,14 +1845,28 @@ h3#reply-title {
 	}
 	
 	@media only screen and (max-width: 480px) {
+			
+			h1 {
+				font-size: 20px;
+			}
+			
 		 	#submenu { padding: 0 6px 20px 160px; }
 		 	#submenu div ul {
-			 	margin-left: -35px;
+			 	margin-left: -26px;
 		 	}
 		 	
 		 	.large_light {
 	    		background-position: -100px -275px;
 	    	}
+	    	
+	    	#portfolio_single nav#nav-above {
+		    	margin-right: 0px;
+	    	}
+	    	
+	    	.nav-next, .nav-previous {
+		    	margin-right: 5px;
+	    	}
+	    
 	    	
 		 	nav#access ul li a {font-size: 12px; margin: 0 26px 0px 0px ;}
 		 	 #access ul li.current_page_item > a {
@@ -1851,12 +1877,15 @@ h3#reply-title {
 		 	 
 		 	 #top-content #portfolio-filter{ display: none; }
 		 	 
+		 	 #top-content h2 { font-size: 16px; }
+		 	 #top-content {padding: 10px 0px;}
+		 	 
 		 	 .project {
-			 	 width: 180px;
-			 	 height: 180px;
+			 	 width: 130px;
+			 	 height: 130px;
 		 	 }
 		 	 
-		 	 .project .text { width: 180px; }
+		 	 .project .text { width: 130px; }
 		 	 
 		 	 .project img {
 			 	 width: 100%;
@@ -1866,8 +1895,47 @@ h3#reply-title {
 		 	footer .first, footer .second, footer .third {display: none;}
 		    
 		    footer .widget-list { width:98%;}
+		    
+		    li.menu-item-774 {
+			    display: none;
+		    }
+		    
+		    .wpcf7 form input[type="text"], .wpcf7 form textarea {
+			    width: 90%;
+		    }
+		    
+		    form .line-separate {
+			    padding: 0 0 75px;
+			}
+			
+			#portfolio_single .video {display: none;}
 		 
 	}
+	
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+
+}
+
+@media all and (orientation:landscape) and (max-width: 480px)  { 
+  /* Style adjustments for landscape mode goes here */
+  body {
+	  font-size: 0.7em;
+  }
+  
+  .project .text .title { font-size: 12px;}
+  .project .text a.tag { font-size: 10px;}
+  
+  header a#logo {
+    background-image: url("images/elements/logotipo_nomail.png");
+    background-size: 70%;
+  }
+    
+  nav#access ul li a {
+    font-size: 11px;
+   }
+  
+}
 
 
 
