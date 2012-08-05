@@ -54,8 +54,10 @@
 						if ($attachments) {
 						    foreach ($attachments as $attachment) {
 						        //Tamaños: "thumbnail", "medium", "large", "full"
-						        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'full' ); ?>
-						        <img src="<?php echo $image_atts[0]; ?>" alt="" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" />
+						        $image_atts = wp_get_attachment_image_src( $attachment->ID, 'full' ); 
+						        $alt_text = get_post_meta($post->ID, '_wp_attachment_image_alt', true); ?>
+						        <img src="<?php echo $image_atts[0]; ?>" alt="<?php the_title(); ?>
+" width="<?php echo $image_atts[1]; ?>" height="<?php echo $image_atts[2]; ?>" />
 						    <?php
 						    }
 						}

@@ -748,8 +748,14 @@ h2 {
 }
 
 h3 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: normal;
+}
+
+.entry-content h3  {
+	font-family:'Magra', Helvetica, Arial;
+	color: #414248;
+	margin: 0px 0px 4px;
 }
 
 
@@ -868,6 +874,7 @@ Index
   float: left;
   position: relative;
   margin: 10px 10px;
+  opacity: 0;
 }
 
 .project .text {
@@ -1278,6 +1285,11 @@ form  div.wpcf7-mail-sent-ok {
 	float: left;
 }
 
+
+#blog_single h1.entry-title {
+	float: left;
+}
+
 #blog_single #post_content .col_DE {
 	margin-top: 30px;
 }
@@ -1648,6 +1660,27 @@ h3#reply-title {
 	margin-right: 3%;
 }
 
+.one_fourth_v2 {
+	position: relative;
+	margin-bottom: 20px;
+	float: left;
+	padding: 0px 1.5%;
+	width: 21.2%;
+	-moz-border-image: url(images/repeat/line_hori.png) 0 7 0 0 round round;
+	-webkit-border-image: url(images/repeat/line_hori.png) 0 7 0 0 round round;
+	border-image: url(images/repeat/line_hori.png) 0 7 0 0 round round;
+	border-width:0 7px 0 0;
+	min-height: 250px;
+}
+
+.one_fourth_v2 h3 {text-align: center;}
+
+.no-border-img {
+	-moz-border-image: none;
+	border-image: none;
+	-webkit-border-image: none;
+}
+
 .one_fourth_nomar {
 	width: 24%;
 	float: left;
@@ -1655,6 +1688,10 @@ h3#reply-title {
 
 .one_half_nomas {
 	width: 50%; 
+}
+
+.pad-10 {
+	padding: 0px 10px;
 }
 
 
@@ -1790,10 +1827,21 @@ h3#reply-title {
 		.one_sixth,
 		.five_sixth, 
 		.one_fourth_nomar,
-		.one_half_nomas  {width: 100%;}
+		.one_half_nomas {width: 100%;}
 		.resize {display: none;}
 	
+					
+		.one_fourth_v2 { 
+			padding: 0px; 
+			min-height:inherit;
+			border-bottom: 1px #b9c3c8 dotted;
+			width: 100%;
+				-moz-border-image: none;
+				border-image: none;
+				-webkit-border-image: none;
 		}
+	
+		.one_fourth_v2 h3 {text-align: left;}
 		
 		form .line-separate { padding: 0 0 55px;}
 		.category-blog .col_DE { margin-top: 20px;}

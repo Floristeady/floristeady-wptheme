@@ -36,8 +36,10 @@ $(function () {
 	
 	/*Effect greyscale*/
 	$(function () {
+		
         // fade in the grayscaled images to avoid visual jump
         $('.greyScale').hide().fadeIn(1000);
+        $('.project').css('opacity','1');
       }); 
         // user window.load to ensure images have been loaded
  
