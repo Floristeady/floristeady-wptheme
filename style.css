@@ -1298,6 +1298,11 @@ form  div.wpcf7-mail-sent-ok {
 	padding-top: 20px;
 }
 
+.thum_blog img {
+	max-width: 660px;
+	height: auto;
+}
+
 .postmetadata {
     float: right;
     margin-left: 50px;
