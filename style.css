@@ -1712,10 +1712,9 @@ h3#reply-title {
 	 /* Note: Design for a width of 768px */
     @media only screen and (min-width: 768px) and (max-width: 959px) { 
     	
-    	body { 
-        	font-size:0.8em; 
-        }
+    	body { font-size:0.8em; }
         
+        h2 {font-size: 20px;}
         .container, #top-content .center {
     		padding: 0 1%;
     	}
@@ -1733,18 +1732,14 @@ h3#reply-title {
 		
 		/* Navegacion */
 		nav#access {max-width: 100%; margin: 48px 0px 0px; float:left; }
-		nav#access ul li a {font-size: 13px; margin: 0 25px;}
-		
+		nav#access ul li a {font-size: 12px; margin: 0 25px;}
 		
 		#sidebar .widget-container {margin-left: 0px;}
 		.resize {display: none;}
 		
 		#site-title { padding: 12px 0 5px;}
 		
-		img {
-			width: 100%;
-			height: auto;
-		}
+		img { width: 100%; height: auto;}
 		
 		#submenu div ul { float: left; margin-left: 48px; width: 100%;}
  
@@ -1967,14 +1962,11 @@ h3#reply-title {
 	
 @media all and (orientation:portrait) { 
   /* Style adjustments for portrait mode goes here */
-
 }
 
-@media all and (orientation:landscape) and (max-width: 480px)  { 
+@media all and (orientation:landscape) and (max-width: 959px)  { 
   /* Style adjustments for landscape mode goes here */
-  body {
-	  font-size: 0.7em;
-  }
+  body {font-size: 0.7em;}
   
   .project .text .title { font-size: 12px;}
   .project .text a.tag { font-size: 10px;}
@@ -1983,10 +1975,7 @@ h3#reply-title {
     background-image: url("images/elements/logotipo_nomail.png");
     background-size: 70%;
   }
-    
-  nav#access ul li a {
-    font-size: 11px;
-   }
+  nav#access ul li a {font-size: 11px;}
   
 }
 
