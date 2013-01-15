@@ -10,8 +10,8 @@ $(function () {
 	$(function () {
 		$('.project').hide();//hide all the images on the page
 		$('.wp-pagenavi').hide();
+		
     });
-	
 
 			var i = 0; //initialize
 			var int=0; //Internet Explorer Fix
@@ -21,35 +21,34 @@ $(function () {
 	
 	function doThis() {
 		var imgs = $('.project').length; //count the number of images on the page
+			
 		
 		if (i >= imgs) { // Loop the images
 			clearInterval(int); //When it reaches the last image the loop ends
-			}
-	
-			$('.project:hidden').eq(0).fadeIn(200); //fades in the hidden images one by one
-			i++;//add 1 to the count
 			
-				$('.wp-pagenavi').delay(2000).fadeIn(100);
+		}
+		   i++;//add 1 to the count
+		   $('.project:hidden').eq(0).fadeIn(200); //fades in the hidden images one by one
 
+		if (i == imgs) { 
+			$('.wp-pagenavi').delay(2000).fadeIn(100);
+			
+			 $('.project a.img').BlackAndWhite({
+			        hoverEffect : true, // default true
+			        // set the path to BnWWorker.js for a superfast implementation
+			        webworkerPath : false,
+			        // for the images with a fluid width and height 
+			        responsive:true,
+			        // to invert the hover effect
+			        invertHoverEffect: false,
+			        speed: { //this property could also be just speed: value for both fadeIn and fadeOut
+			            fadeIn: 200, // 200ms for fadeIn animations
+			            fadeOut: 800 // 800ms for fadeOut animations
+			        }
+			  });
+		}   
 	}	
-	
-	
-	/*Effect greyscale*/
-	$(function () {
-		
-        // fade in the grayscaled images to avoid visual jump
-        $('.greyScale').hide().fadeIn(1000);
-        $('.project').css('opacity','1');
-      }); 
-        // user window.load to ensure images have been loaded
  
-        $('.greyScale').greyScale({
-          // call the plugin with non-defult fadeTime (default: 400ms)
-          fadeTime: 500,
-          reverse: false
-
-        });
-       
     
 });
 
@@ -138,11 +137,12 @@ $(function(){
 
 	});
 	
+	
+	/* project */
 	$("#portfolio a.img").hover(function(){
-		$(this).siblings('span').stop().animate({ height: '0',  opacity: '0' }, 300);
+		$(this).siblings('span.text').stop().animate({ height: '0',  opacity: '0' }, 300); 
 	}, function(){
-		$(this).siblings('span').stop().animate({ height: '32px', opacity: '1' }, 300);
-
+	    $(this).siblings('span.text').stop().animate({ height: '32px', opacity: '1' }, 300);
 	});
 	
 	$("#portfolio a.title").hover(function(){

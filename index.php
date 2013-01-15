@@ -72,7 +72,7 @@ get_header(); ?>
 						$thumbnailsrc = $domsxe->attributes()->src;
 					?>
 								
-			       <img class="img greyScale" alt="<?php the_title() ?>" src="<?php echo site_url(); ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=220&h=220" />
+			       <img class="greyScale" alt="<?php the_title() ?>" src="<?php echo site_url(); ?>/scripts/timthumb.php?src=<?php print $thumbnailsrc; ?>&w=220&h=220" />
 		       </a>
 		       
 		       <span class="text">

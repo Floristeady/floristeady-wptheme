@@ -874,7 +874,12 @@ Index
   float: left;
   position: relative;
   margin: 10px 10px;
-  opacity: 0;
+  /*opacity: 0;*/
+}
+
+.project a.img {
+	display: block;
+	position: relative;
 }
 
 .project .text {
@@ -888,6 +893,7 @@ Index
 	width: 220px;
 	padding: 9px 0px 5px;
 	text-align: center;	
+	z-index: 100;
 }
 
 .project .text .title {
@@ -1675,6 +1681,7 @@ h3#reply-title {
 	-webkit-border-image: url(images/repeat/line_hori.png) 0 7 0 0 round round;
 	border-image: url(images/repeat/line_hori.png) 0 7 0 0 round round;
 	border-width:0 7px 0 0;
+	border-right: 4px dotted #666;
 	min-height: 250px;
 }
 
@@ -1684,6 +1691,7 @@ h3#reply-title {
 	-moz-border-image: none;
 	border-image: none;
 	-webkit-border-image: none;
+	border: none;
 }
 
 .one_fourth_nomar {
@@ -1839,6 +1847,7 @@ h3#reply-title {
 				-moz-border-image: none;
 				border-image: none;
 				-webkit-border-image: none;
+				border-right: none;
 		}
 	
 		.one_fourth_v2 h3 {text-align: left;}
